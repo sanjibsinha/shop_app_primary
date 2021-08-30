@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import './product.dart';
+import 'book.dart';
 
-class Products with ChangeNotifier {
-  final List<Product> _items = [
-    Product(
+class Books with ChangeNotifier {
+  final List<Book> _items = [
+    Book(
       id: 'p1',
       title: 'Beginning Flutter With Dart',
       description: 'You can learn Flutter as well Dart.',
@@ -12,7 +12,7 @@ class Products with ChangeNotifier {
       imageUrl:
           'https://cdn.pixabay.com/photo/2014/09/05/18/32/old-books-436498_960_720.jpg',
     ),
-    Product(
+    Book(
       id: 'p2',
       title: 'Flutter State Management',
       description: 'Everything you should know about Flutter State.',
@@ -20,7 +20,7 @@ class Products with ChangeNotifier {
       imageUrl:
           'https://cdn.pixabay.com/photo/2016/09/10/17/18/book-1659717_960_720.jpg',
     ),
-    Product(
+    Book(
       id: 'p3',
       title: 'WordPress Coding',
       description:
@@ -29,7 +29,7 @@ class Products with ChangeNotifier {
       imageUrl:
           'https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_960_720.jpg',
     ),
-    Product(
+    Book(
       id: 'p4',
       title: 'PHP 8 Standard Library',
       description: 'PHP 8 Standard Library has made developers life easier.',
@@ -40,18 +40,18 @@ class Products with ChangeNotifier {
   ];
   // var _showFavoritesOnly = false;
 
-  List<Product> get items {
+  List<Book> get items {
     // if (_showFavoritesOnly) {
     //   return _items.where((prodItem) => prodItem.isFavorite).toList();
     // }
     return [..._items];
   }
 
-  List<Product> get favoriteItems {
+  List<Book> get favoriteItems {
     return _items.where((prodItem) => prodItem.isFavorite).toList();
   }
 
-  Product findById(String id) {
+  Book findById(String id) {
     return _items.firstWhere((prod) => prod.id == id);
   }
 

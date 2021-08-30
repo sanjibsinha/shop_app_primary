@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../controllers/products_grid.dart';
+import '../controllers/books_grid.dart';
 
 enum FilterOptions {
   Favorites,
   All,
 }
 
-class ProductsOverviewScreen extends StatefulWidget {
-  const ProductsOverviewScreen({Key? key}) : super(key: key);
+class BooksOverviewScreen extends StatefulWidget {
+  const BooksOverviewScreen({Key? key}) : super(key: key);
 
   @override
-  _ProductsOverviewScreenState createState() => _ProductsOverviewScreenState();
+  _BooksOverviewScreenState createState() => _BooksOverviewScreenState();
 }
 
-class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
+class _BooksOverviewScreenState extends State<BooksOverviewScreen> {
   var _showOnlyFavorites = false;
 
   @override
@@ -49,7 +49,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           ),
         ],
       ),
-      body: ProductsGrid(showFavs: _showOnlyFavorites),
+      body: BooksGrid(showFavs: _showOnlyFavorites),
     );
   }
 }

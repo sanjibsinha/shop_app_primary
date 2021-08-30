@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import '../models/products.dart';
+import '../models/books.dart';
 
-class ProductDetailScreen extends StatelessWidget {
+class BookDetailScreen extends StatelessWidget {
   static const routeName = '/product-detail';
 
-  const ProductDetailScreen({Key? key}) : super(key: key);
+  const BookDetailScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final productId =
         ModalRoute.of(context)!.settings.arguments as String; // is the id!
-    final loadedProduct = Provider.of<Products>(
+    final loadedProduct = Provider.of<Books>(
       context,
       listen: false,
     ).findById(productId);
