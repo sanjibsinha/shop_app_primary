@@ -1,45 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../views/book_detail_screen.dart';
-import '../models/book.dart';
 
 class BookItem extends StatelessWidget {
-  const BookItem({Key? key}) : super(key: key);
+  final String id;
+  final String title;
+  final String imageUrl;
+
+  BookItem(this.id, this.title, this.imageUrl);
 
   @override
   Widget build(BuildContext context) {
-    final product = Provider.of<Book>(context, listen: false);
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
         child: GestureDetector(
-          onTap: () {
-            Navigator.of(context).pushNamed(
-              BookDetailScreen.routeName,
-              arguments: product.id,
-            );
-          },
+          onTap: () {},
           child: Image.network(
-            product.imageUrl,
+            imageUrl,
             fit: BoxFit.cover,
           ),
         ),
         footer: GridTileBar(
           backgroundColor: Colors.black87,
-          leading: Consumer<Book>(
-            builder: (ctx, product, _) => IconButton(
-              icon: Icon(
-                product.isFavorite ? Icons.favorite : Icons.favorite_border,
-              ),
-              color: Theme.of(context).primaryColor,
-              onPressed: () {
-                product.toggleFavoriteStatus();
-              },
-            ),
+          leading: IconButton(
+            icon: const Icon(Icons.favorite),
+            color: Theme.of(context).primaryColor,
+            onPressed: () {},
           ),
           title: Text(
-            product.title,
+            title,
             textAlign: TextAlign.center,
           ),
           trailing: IconButton(

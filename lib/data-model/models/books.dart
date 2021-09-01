@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-
 import 'book.dart';
 
-class Books with ChangeNotifier {
+class Books {
   final List<Book> _items = [
     Book(
       id: 'p1',
@@ -56,35 +54,4 @@ class Books with ChangeNotifier {
           'https://cdn.pixabay.com/photo/2015/11/19/21/14/glasses-1052023_960_720.jpg',
     ),
   ];
-  // var _showFavoritesOnly = false;
-
-  List<Book> get items {
-    // if (_showFavoritesOnly) {
-    //   return _items.where((prodItem) => prodItem.isFavorite).toList();
-    // }
-    return [..._items];
-  }
-
-  List<Book> get favoriteItems {
-    return _items.where((prodItem) => prodItem.isFavorite).toList();
-  }
-
-  Book findById(String id) {
-    return _items.firstWhere((prod) => prod.id == id);
-  }
-
-  // void showFavoritesOnly() {
-  //   _showFavoritesOnly = true;
-  //   notifyListeners();
-  // }
-
-  // void showAll() {
-  //   _showFavoritesOnly = false;
-  //   notifyListeners();
-  // }
-
-  void addProduct() {
-    // _items.add(value);
-    notifyListeners();
-  }
 }
